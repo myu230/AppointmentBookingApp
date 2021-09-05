@@ -55,7 +55,12 @@ namespace BookingApp
             // 
             // cbTime
             // 
+            this.cbTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTime.FormattingEnabled = true;
+            this.cbTime.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
             this.cbTime.Location = new System.Drawing.Point(161, 200);
             this.cbTime.Name = "cbTime";
             this.cbTime.Size = new System.Drawing.Size(156, 21);
@@ -127,6 +132,7 @@ namespace BookingApp
             this.txtNameFirst.Name = "txtNameFirst";
             this.txtNameFirst.Size = new System.Drawing.Size(156, 20);
             this.txtNameFirst.TabIndex = 1;
+            this.txtNameFirst.TextChanged += new System.EventHandler(this.txt_TextChanged);
             // 
             // txtEmail
             // 
@@ -134,6 +140,7 @@ namespace BookingApp
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(156, 20);
             this.txtEmail.TabIndex = 7;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txt_TextChanged);
             // 
             // txtPhone
             // 
@@ -141,6 +148,7 @@ namespace BookingApp
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(156, 20);
             this.txtPhone.TabIndex = 5;
+            this.txtPhone.TextChanged += new System.EventHandler(this.txt_TextChanged);
             // 
             // txtNameLast
             // 
@@ -148,6 +156,7 @@ namespace BookingApp
             this.txtNameLast.Name = "txtNameLast";
             this.txtNameLast.Size = new System.Drawing.Size(156, 20);
             this.txtNameLast.TabIndex = 3;
+            this.txtNameLast.TextChanged += new System.EventHandler(this.txt_TextChanged);
             // 
             // btnSubmit
             // 
@@ -158,6 +167,7 @@ namespace BookingApp
             this.btnSubmit.TabIndex = 12;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // btnClear
             // 
@@ -167,6 +177,7 @@ namespace BookingApp
             this.btnClear.TabIndex = 13;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // BookingForm
             // 
@@ -191,6 +202,7 @@ namespace BookingApp
             this.MaximizeBox = false;
             this.Name = "BookingForm";
             this.Text = "Book an Appoinment";
+            this.TextChanged += new System.EventHandler(this.txt_TextChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
