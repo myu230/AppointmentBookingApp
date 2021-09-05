@@ -11,9 +11,9 @@ using System.Text.RegularExpressions;
 
 namespace BookingApp
 {
-    public partial class BookingForm : Form
+    public partial class ApptBookingForm : Form
     {
-        public BookingForm()
+        public ApptBookingForm()
         {
             InitializeComponent();
         }

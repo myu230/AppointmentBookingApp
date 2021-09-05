@@ -1,7 +1,7 @@
 ﻿
 namespace BookingApp
 {
-    partial class BookingForm
+    partial class ApptBookingForm
     {
         /// <summary>
         /// Required designer variable.
