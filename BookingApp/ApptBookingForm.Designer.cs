@@ -50,7 +50,7 @@ namespace BookingApp
             this.txtDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtDate.Location = new System.Drawing.Point(161, 164);
             this.txtDate.MaxDate = new System.DateTime(3021, 12, 31, 0, 0, 0, 0);
-            this.txtDate.MinDate = new System.DateTime(2021, 9, 16, 0, 0, 0, 0);
+            this.txtDate.MinDate = new System.DateTime(2020, 9, 16, 0, 0, 0, 0);
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(156, 20);
             this.txtDate.TabIndex = 9;
