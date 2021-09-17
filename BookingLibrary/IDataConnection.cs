@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace BookingLibrary
 {
-    public class ApptModel
+    public interface IDataConnection
     {
-        public PersonModel Person { get; set; }
-        public string ApptTime { get; set; }
+        PersonModel CreatePerson(PersonModel model);
     }
 }

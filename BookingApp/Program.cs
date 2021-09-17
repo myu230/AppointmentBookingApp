@@ -16,6 +16,10 @@ namespace BookingApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            //Initialize database connector
+            BookingLibrary.GlobalConfig.InitializeConnections(true, false);
+
             Application.Run(new ApptBookingForm());
         }
     }
