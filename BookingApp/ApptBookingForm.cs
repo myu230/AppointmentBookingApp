@@ -43,11 +43,8 @@ namespace BookingApp
                 model.Email = txtEmail.Text;
                 model.PhoneNumber = txtPhone.Text;
 
-                foreach (IDataConnection db in GlobalConfig.Connections)
-                {
-                    db.CreatePerson(model);
-                }
-
+                GlobalConfig.Connection.CreatePerson(model);
+                
                 MessageBox.Show("Thank You!", "Booking Submitted", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

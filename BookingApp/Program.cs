@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookingLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace BookingApp
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Initialize database connector
-            BookingLibrary.GlobalConfig.InitializeConnections(true, false);
+            BookingLibrary.GlobalConfig.InitializeConnections(DatabaseType.Sql);
 
             Application.Run(new ApptBookingForm());
         }

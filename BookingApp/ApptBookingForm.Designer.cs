@@ -43,6 +43,8 @@ namespace BookingApp
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.txtPhone = new System.Windows.Forms.MaskedTextBox();
+            this.lblSubject = new System.Windows.Forms.Label();
+            this.cbSubject = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtDate
@@ -50,7 +52,7 @@ namespace BookingApp
             this.txtDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtDate.Location = new System.Drawing.Point(161, 164);
             this.txtDate.MaxDate = new System.DateTime(3021, 12, 31, 0, 0, 0, 0);
-            this.txtDate.MinDate = new System.DateTime(2021, 9, 16, 0, 0, 0, 0);
+            this.txtDate.MinDate = new System.DateTime(2020, 9, 16, 0, 0, 0, 0);
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(156, 20);
             this.txtDate.TabIndex = 9;
@@ -156,20 +158,20 @@ namespace BookingApp
             // btnSubmit
             // 
             this.btnSubmit.Enabled = false;
-            this.btnSubmit.Location = new System.Drawing.Point(242, 243);
+            this.btnSubmit.Location = new System.Drawing.Point(242, 274);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 12;
+            this.btnSubmit.TabIndex = 14;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(161, 243);
+            this.btnClear.Location = new System.Drawing.Point(161, 274);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 13;
+            this.btnClear.TabIndex = 15;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -182,11 +184,36 @@ namespace BookingApp
             this.txtPhone.Size = new System.Drawing.Size(156, 20);
             this.txtPhone.TabIndex = 5;
             // 
+            // lblSubject
+            // 
+            this.lblSubject.AutoSize = true;
+            this.lblSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubject.Location = new System.Drawing.Point(15, 239);
+            this.lblSubject.Name = "lblSubject";
+            this.lblSubject.Size = new System.Drawing.Size(56, 16);
+            this.lblSubject.TabIndex = 12;
+            this.lblSubject.Text = "Subject:";
+            // 
+            // cbSubject
+            // 
+            this.cbSubject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSubject.FormattingEnabled = true;
+            this.cbSubject.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.cbSubject.Location = new System.Drawing.Point(161, 237);
+            this.cbSubject.Name = "cbSubject";
+            this.cbSubject.Size = new System.Drawing.Size(156, 21);
+            this.cbSubject.TabIndex = 13;
+            // 
             // ApptBookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(333, 287);
+            this.ClientSize = new System.Drawing.Size(333, 317);
+            this.Controls.Add(this.lblSubject);
+            this.Controls.Add(this.cbSubject);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtNameLast);
@@ -226,6 +253,8 @@ namespace BookingApp
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.MaskedTextBox txtPhone;
+        private System.Windows.Forms.Label lblSubject;
+        private System.Windows.Forms.ComboBox cbSubject;
     }
 }
 
