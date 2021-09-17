@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppointmentBookingApp", "BookingApp\AppointmentBookingApp.csproj", "{65B1BD37-2EBB-4FE6-AEDC-B4BD7C37A9A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingUI", "BookingApp\BookingUI.csproj", "{65B1BD37-2EBB-4FE6-AEDC-B4BD7C37A9A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingLibrary", "BookingLibrary\BookingLibrary.csproj", "{BB0F4E3D-304C-4822-8190-B603D33643ED}"
 EndProject

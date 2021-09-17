@@ -39,19 +39,22 @@ namespace BookingApp
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtNameFirst = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtNameLast = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.txtPhone = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // txtDate
             // 
             this.txtDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtDate.Location = new System.Drawing.Point(161, 164);
+            this.txtDate.MaxDate = new System.DateTime(3021, 12, 31, 0, 0, 0, 0);
+            this.txtDate.MinDate = new System.DateTime(2021, 9, 16, 0, 0, 0, 0);
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(156, 20);
             this.txtDate.TabIndex = 9;
+            this.txtDate.Value = new System.DateTime(2021, 9, 16, 0, 0, 0, 0);
             // 
             // cbTime
             // 
@@ -142,14 +145,6 @@ namespace BookingApp
             this.txtEmail.TabIndex = 7;
             this.txtEmail.TextChanged += new System.EventHandler(this.txt_TextChanged);
             // 
-            // txtPhone
-            // 
-            this.txtPhone.Location = new System.Drawing.Point(161, 92);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(156, 20);
-            this.txtPhone.TabIndex = 5;
-            this.txtPhone.TextChanged += new System.EventHandler(this.txt_TextChanged);
-            // 
             // txtNameLast
             // 
             this.txtNameLast.Location = new System.Drawing.Point(161, 56);
@@ -179,7 +174,15 @@ namespace BookingApp
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // BookingForm
+            // txtPhone
+            // 
+            this.txtPhone.Location = new System.Drawing.Point(161, 92);
+            this.txtPhone.Mask = "000-000-0000";
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(156, 20);
+            this.txtPhone.TabIndex = 5;
+            // 
+            // ApptBookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -187,7 +190,6 @@ namespace BookingApp
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtNameLast);
-            this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtNameFirst);
             this.Controls.Add(this.lblEmail);
@@ -198,9 +200,10 @@ namespace BookingApp
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.cbTime);
             this.Controls.Add(this.txtDate);
+            this.Controls.Add(this.txtPhone);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "BookingForm";
+            this.Name = "ApptBookingForm";
             this.Text = "Book an Appoinment";
             this.TextChanged += new System.EventHandler(this.txt_TextChanged);
             this.ResumeLayout(false);
@@ -219,10 +222,10 @@ namespace BookingApp
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtNameFirst;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.TextBox txtNameLast;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.MaskedTextBox txtPhone;
     }
 }
 
