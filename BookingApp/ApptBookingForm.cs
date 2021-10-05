@@ -16,13 +16,16 @@ namespace BookingApp
     {
         private List<TimeSlotModel> timeSlotsAll = GlobalConfig.Connection.GetTimeSlots_All();
         private List<TimeSlotModel> timeSlotsAvail = new List<TimeSlotModel>();
+        private List<string> subjects = GlobalConfig.Connection.GetServices();
         public ApptBookingForm()
         {
             InitializeComponent();
-         
+
             //CreateSampleData();
 
-            WireUpTimeSlots();
+            //WireUpTimeSlots();
+            WireUpServiceSlots();
+            UpdateTimeSlots();
         }
 
         private void CreateSampleData()
@@ -37,6 +40,12 @@ namespace BookingApp
             cbTime.DataSource = timeSlotsAll;
             cbTime.DisplayMember = "TimeSlotName";
         }
+
+        private void WireUpServiceSlots()
+        {
+            cbSubject.DataSource = subjects;
+        }
+
         private void txt_TextChanged(object sender, EventArgs e)
         {
             if (txtNameFirst.TextLength > 0 && txtNameLast.TextLength > 0  && txtPhone.TextLength > 0)
@@ -62,6 +71,15 @@ namespace BookingApp
                 model.PhoneNumber = txtPhone.Text;
 
                 GlobalConfig.Connection.CreatePerson(model);
+
+                ApptModel appt = new ApptModel();
+
+                appt.Person = model;
+                appt.Date = txtDate.Value.ToString("d");
+                appt.ApptTime = cbTime.Text;
+                appt.Service = cbSubject.Text;
+
+                GlobalConfig.Connection.CreateAppt(appt, model);
 
                 ClearForm();
                 MessageBox.Show("Thank You!", "Booking Submitted", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -111,14 +129,18 @@ namespace BookingApp
 
         private void txtDate_ValueChanged(object sender, EventArgs e)
         {
-            string appDate = txtDate.Value.ToString("d");   
+            UpdateTimeSlots();
+        }
+
+        private void UpdateTimeSlots()
+        {
+            string appDate = txtDate.Value.ToString("d");
             timeSlotsAvail = GlobalConfig.Connection.GetTimeSlots_Avail(appDate);
 
-            cbTime.ValueMember = null;
+            // cbTime.ValueMember = null;
             cbTime.DataSource = timeSlotsAvail;
             cbTime.DisplayMember = "TimeSlotName";
-            cbTime.Refresh();
-
+            // cbTime.Refresh();
         }
     }
 }

@@ -20,9 +20,14 @@ namespace BookingLibrary
         /// </summary>
         public PersonModel Person { get; set; }
         /// <summary>
+        /// Date of Appointment
+        /// </summary>
+        public string Date { get; set; }
+        /// <summary>
         /// Time of appt.
         /// </summary>
         public string ApptTime { get; set; }
+
         /// <summary>
         /// Type of appt.
         /// </summary>

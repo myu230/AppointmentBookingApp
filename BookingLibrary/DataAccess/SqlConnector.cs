@@ -64,5 +64,36 @@ namespace BookingLibrary
 
             return output;
         }
+
+        public List<string> GetServices()
+        {
+            List<string> output;
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
+            {
+                output = connection.Query<string>("dbo.spServices_GetAll").ToList();
+            }
+
+            return output;
+        }
+
+        public ApptModel CreateAppt(ApptModel appt, PersonModel model)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Date", appt.Date);
+                p.Add("@TimeSlotName", appt.ApptTime);
+                p.Add("@ServiceName", appt.Service);
+                p.Add("@PersonID", model.Id);
+                p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spAppt_Insert", p, commandType: CommandType.StoredProcedure);
+
+                appt.Id = p.Get<int>("@id");
+
+                return appt;
+            }
+        }
     }
 }

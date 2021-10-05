@@ -10,8 +10,12 @@ namespace BookingLibrary
     {
         PersonModel CreatePerson(PersonModel model);
 
+        ApptModel CreateAppt(ApptModel appt, PersonModel model);
+
         List<TimeSlotModel> GetTimeSlots_All();
 
         List <TimeSlotModel> GetTimeSlots_Avail(string appDate);
+
+        List<string> GetServices();
     }
 }
