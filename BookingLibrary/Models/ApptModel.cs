@@ -10,7 +10,11 @@ namespace BookingLibrary
     /// One appointment slot.
     /// </summary>
     public class ApptModel
-    {
+    {   
+        /// <summary>
+        /// ID for appointment
+        /// </summary>
+        public int Id { get; set; }
         /// <summary>
         /// Person who is in the appt slot.
         /// </summary>

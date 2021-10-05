@@ -16,6 +16,7 @@ namespace BookingLibrary
 {
     public class SqlConnector : IDataConnection
     {
+        private const string db = "Appointments";
         /// <summary>
         /// Saves a person to the database
         /// </summary>
@@ -23,7 +24,7 @@ namespace BookingLibrary
         /// <returns>Person information</returns>
         public PersonModel CreatePerson(PersonModel model)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("Appointments")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
             {
                 var p = new DynamicParameters();
                 p.Add("@FirstName", model.FirstName);
@@ -38,6 +39,30 @@ namespace BookingLibrary
 
                 return model;
             }
+        }
+
+        public List<TimeSlotModel> GetTimeSlots_All()
+        {
+            List<TimeSlotModel> output;
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
+            {
+                output = connection.Query<TimeSlotModel>("dbo.spTimeSlots_GetAll").ToList();
+            }
+
+            return output;
+        }
+
+        public List<TimeSlotModel> GetTimeSlots_Avail(string appDate)
+        {
+            List<TimeSlotModel> output;
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
+            {
+                var val = new { AppDate = appDate };
+                output = connection.Query<TimeSlotModel>("dbo.spTimeSlots_GetByDate @AppDate",val).ToList();
+            }
+
+            return output;
         }
     }
 }

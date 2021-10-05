@@ -14,11 +14,29 @@ namespace BookingApp
 {
     public partial class ApptBookingForm : Form
     {
+        private List<TimeSlotModel> timeSlotsAll = GlobalConfig.Connection.GetTimeSlots_All();
+        private List<TimeSlotModel> timeSlotsAvail = new List<TimeSlotModel>();
         public ApptBookingForm()
         {
             InitializeComponent();
+         
+            //CreateSampleData();
+
+            WireUpTimeSlots();
         }
 
+        private void CreateSampleData()
+        {
+            timeSlotsAll.Add(new TimeSlotModel { TimeSlotName = "1:00AM" });
+            timeSlotsAll.Add(new TimeSlotModel { TimeSlotName = "2:00AM" });
+
+        }
+       
+        private void WireUpTimeSlots()
+        {
+            cbTime.DataSource = timeSlotsAll;
+            cbTime.DisplayMember = "TimeSlotName";
+        }
         private void txt_TextChanged(object sender, EventArgs e)
         {
             if (txtNameFirst.TextLength > 0 && txtNameLast.TextLength > 0  && txtPhone.TextLength > 0)
@@ -44,7 +62,8 @@ namespace BookingApp
                 model.PhoneNumber = txtPhone.Text;
 
                 GlobalConfig.Connection.CreatePerson(model);
-                
+
+                ClearForm();
                 MessageBox.Show("Thank You!", "Booking Submitted", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -88,6 +107,18 @@ namespace BookingApp
             txtPhone.Clear();
             txtEmail.Clear();
             txtNameFirst.Focus();
+        }
+
+        private void txtDate_ValueChanged(object sender, EventArgs e)
+        {
+            string appDate = txtDate.Value.ToString("d");   
+            timeSlotsAvail = GlobalConfig.Connection.GetTimeSlots_Avail(appDate);
+
+            cbTime.ValueMember = null;
+            cbTime.DataSource = timeSlotsAvail;
+            cbTime.DisplayMember = "TimeSlotName";
+            cbTime.Refresh();
+
         }
     }
 }

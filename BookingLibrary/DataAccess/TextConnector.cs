@@ -15,5 +15,15 @@ namespace BookingLibrary
 
             return model;
         }
+
+        public List<TimeSlotModel> GetTimeSlots_All()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<TimeSlotModel> GetTimeSlots_Avail(string appDate)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

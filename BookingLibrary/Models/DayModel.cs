@@ -13,6 +13,10 @@ namespace BookingLibrary
         /// </summary>
         public string Date { get; set; }
         /// <summary>
+        /// free time slots on a day
+        /// </summary>
+        public List<TimeSlotModel> AvailableTimes { get; set; }
+        /// <summary>
         /// Appointments made on set date.
         /// </summary>
         public List<ApptModel> Schedule { get; set; }
