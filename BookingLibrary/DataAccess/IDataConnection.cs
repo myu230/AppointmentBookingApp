@@ -17,5 +17,7 @@ namespace BookingLibrary
         List <TimeSlotModel> GetTimeSlots_Avail(string appDate);
 
         List<string> GetServices();
+
+        List<DisplayModel> GetDay(string date);
     }
 }

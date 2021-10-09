@@ -29,5 +29,12 @@ namespace BookingLibrary
         /// </summary>
         public string PhoneNumber { get; set; }
 
+        public string FullName
+        {
+            get
+            {
+                return $"{FirstName} {LastName}";
+            }
+        }
     }
 }

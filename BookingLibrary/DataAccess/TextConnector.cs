@@ -21,6 +21,11 @@ namespace BookingLibrary
             return model;
         }
 
+        public List<DisplayModel> GetDay(string date)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<string> GetServices()
         {
             throw new NotImplementedException();

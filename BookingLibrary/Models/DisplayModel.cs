@@ -6,26 +6,16 @@ using System.Threading.Tasks;
 
 namespace BookingLibrary
 {
-    /// <summary>
-    /// One appointment slot.
-    /// </summary>
-    public class ApptModel
-    {   
-        /// <summary>
-        /// ID for appointment
-        /// </summary>
+    public class DisplayModel
+    {
         public int Id { get; set; }
         /// <summary>
         /// Person who is in the appt slot.
         /// </summary>
-        public PersonModel Person { get; set; }
-        /// <summary>
-        /// Date of Appointment
+        public string FirstName { get; set; }
         /// </summary>
-        public string Date { get; set; }
-        /// <summary>
-        /// Time of appt.
-        /// </summary>
+        public string LastName { get; set; }
+  
         public string TimeSlotName { get; set; }
 
         /// <summary>
@@ -33,6 +23,12 @@ namespace BookingLibrary
         /// </summary>
         public string ServiceName { get; set; }
 
-      
+        public string FullInfo
+        {
+            get
+            {
+                return $"{TimeSlotName}: {FirstName} {LastName}              {ServiceName}";
+            }
+        }
     }
 }

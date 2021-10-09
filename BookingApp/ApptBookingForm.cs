@@ -76,8 +76,8 @@ namespace BookingApp
 
                 appt.Person = model;
                 appt.Date = txtDate.Value.ToString("d");
-                appt.ApptTime = cbTime.Text;
-                appt.Service = cbSubject.Text;
+                appt.TimeSlotName = cbTime.Text;
+                appt.ServiceName = cbSubject.Text;
 
                 GlobalConfig.Connection.CreateAppt(appt, model);
 

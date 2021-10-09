@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -83,8 +84,8 @@ namespace BookingLibrary
             {
                 var p = new DynamicParameters();
                 p.Add("@Date", appt.Date);
-                p.Add("@TimeSlotName", appt.ApptTime);
-                p.Add("@ServiceName", appt.Service);
+                p.Add("@TimeSlotName", appt.TimeSlotName);
+                p.Add("@ServiceName", appt.ServiceName);
                 p.Add("@PersonID", model.Id);
                 p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
@@ -95,5 +96,28 @@ namespace BookingLibrary
                 return appt;
             }
         }
+
+        public List<DisplayModel> GetDay(string date)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
+            {
+
+                var output = connection.Query<DisplayModel>("dbo.spTimeSlots_GetAll").ToList();
+                var bookings = connection.Query<DisplayModel>("dbo.Appts_GetByDay @Date", new { Date = date }).ToList();
+
+                foreach(DisplayModel time in bookings)
+                {
+                    for (int i = 0; i < output.Count; i ++)
+                    {
+                        if (output[i].TimeSlotName == time.TimeSlotName )
+                        {
+                            output[i] = time;
+                        }
+                    }
+                }
+                return output;
+            }
+        }
+       
     }
 }

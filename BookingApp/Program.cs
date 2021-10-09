@@ -21,7 +21,8 @@ namespace BookingApp
             //Initialize database connector
             BookingLibrary.GlobalConfig.InitializeConnections(DatabaseType.Sql);
 
-            Application.Run(new ApptBookingForm());
+            Application.Run(new ApptViewingForm());
+           // Application.Run(new ApptBookingForm());
         }
     }
 }
