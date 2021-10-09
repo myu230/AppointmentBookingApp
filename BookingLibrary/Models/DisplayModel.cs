@@ -18,16 +18,25 @@ namespace BookingLibrary
   
         public string TimeSlotName { get; set; }
 
-        /// <summary>
-        /// Type of appt.
-        /// </summary>
+    
         public string ServiceName { get; set; }
+
+        public string PhoneNumber { get; set; }
+
+
+        public string FullName
+        {
+            get
+            {
+                return $"{FirstName} {LastName}";
+            }
+        }
 
         public string FullInfo
         {
             get
             {
-                return $"{TimeSlotName}: {FirstName} {LastName}              {ServiceName}";
+                return $"{TimeSlotName}:    {FirstName} {LastName} ";
             }
         }
     }

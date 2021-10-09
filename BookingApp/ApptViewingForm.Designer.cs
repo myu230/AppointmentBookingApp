@@ -37,13 +37,17 @@ namespace BookingApp
             // 
             // cbAppointments
             // 
+            this.cbAppointments.BackColor = System.Drawing.SystemColors.Window;
+            this.cbAppointments.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbAppointments.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.cbAppointments.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAppointments.FormattingEnabled = true;
             this.cbAppointments.Location = new System.Drawing.Point(288, 33);
             this.cbAppointments.MaxDropDownItems = 5;
             this.cbAppointments.Name = "cbAppointments";
             this.cbAppointments.Size = new System.Drawing.Size(223, 289);
             this.cbAppointments.TabIndex = 0;
+            this.cbAppointments.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.cbAppointments_DrawItem);
             // 
             // calendar
             // 
