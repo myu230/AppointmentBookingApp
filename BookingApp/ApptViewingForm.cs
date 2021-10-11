@@ -28,6 +28,7 @@ namespace BookingApp
         {
             ApptBookingForm apptBooking = new ApptBookingForm();
             apptBooking.ShowDialog();
+            CreateSchedule();
         }
 
         private void calendar_DateSelected(object sender, DateRangeEventArgs e)
@@ -105,6 +106,14 @@ namespace BookingApp
                        e.Bounds.Top + 2*this.cbAppointments.ItemHeight/3 ,
                        e.Bounds.Width , 2 * this.cbAppointments.ItemHeight / 3));
             }
+        }
+
+        private void btnDelAppt_Click(object sender, EventArgs e)
+        {
+            DisplayModel appt = appts[cbAppointments.SelectedIndex];
+            GlobalConfig.Connection.DelAppt(appt);
+            CreateSchedule();
+            MessageBox.Show("Thank You!", "Appointment Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

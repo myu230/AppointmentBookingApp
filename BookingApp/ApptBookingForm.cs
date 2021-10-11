@@ -20,6 +20,7 @@ namespace BookingApp
         public ApptBookingForm()
         {
             InitializeComponent();
+            txtDate.Value = DateTime.Today;
 
             //CreateSampleData();
 
@@ -82,6 +83,7 @@ namespace BookingApp
                 GlobalConfig.Connection.CreateAppt(appt, model);
 
                 ClearForm();
+                UpdateTimeSlots();
                 MessageBox.Show("Thank You!", "Booking Submitted", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

@@ -118,6 +118,18 @@ namespace BookingLibrary
                 return output;
             }
         }
-       
+
+        public void DelAppt(DisplayModel appt)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
+            {
+                var val = new { Id = appt.Id, FirstName = appt.FirstName, LastName = appt.LastName , PhoneNumber = appt.PhoneNumber };
+
+                connection.Execute("dbo.Appt_DelById", val, commandType: CommandType.StoredProcedure);
+
+                connection.Execute("dbo.Person_DelByName", val, commandType: CommandType.StoredProcedure);
+            }
+
+        }
     }
 }

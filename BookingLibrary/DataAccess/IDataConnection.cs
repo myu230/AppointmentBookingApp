@@ -19,5 +19,7 @@ namespace BookingLibrary
         List<string> GetServices();
 
         List<DisplayModel> GetDay(string date);
+
+        void DelAppt(DisplayModel appt);
     }
 }

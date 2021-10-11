@@ -56,7 +56,7 @@ namespace BookingApp
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(156, 20);
             this.txtDate.TabIndex = 9;
-            this.txtDate.Value = new System.DateTime(2021, 9, 16, 0, 0, 0, 0);
+            this.txtDate.Value = new System.DateTime(2021, 10, 11, 0, 0, 0, 0);
             this.txtDate.ValueChanged += new System.EventHandler(this.txtDate_ValueChanged);
             // 
             // cbTime

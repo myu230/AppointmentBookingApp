@@ -75,6 +75,7 @@ namespace BookingApp
             this.btnDelAppt.TabIndex = 5;
             this.btnDelAppt.Text = "Delete Appointment";
             this.btnDelAppt.UseVisualStyleBackColor = true;
+            this.btnDelAppt.Click += new System.EventHandler(this.btnDelAppt_Click);
             // 
             // ApptViewingForm
             // 
@@ -88,7 +89,7 @@ namespace BookingApp
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "ApptViewingForm";
-            this.Text = "ApptViewingForm";
+            this.Text = "Schedule";
             this.ResumeLayout(false);
 
         }
